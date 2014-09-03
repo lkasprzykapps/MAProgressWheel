@@ -175,16 +175,17 @@ public class ProgressWheel extends View {
 		paddingLeft = this.getPaddingLeft() + (xOffset / 2);
 		paddingRight = this.getPaddingRight() + (xOffset / 2);
 
-		rectBounds = new RectF(paddingLeft, paddingTop, this.getLayoutParams().width - paddingRight, this.getLayoutParams().height - paddingBottom);
+		rectBounds = new RectF(paddingLeft, paddingTop, this.getLayoutParams().width - paddingRight, this.getLayoutParams().height
+				- paddingBottom);
 
 		circleBounds = new RectF(paddingLeft + barWidth, paddingTop + barWidth, this.getLayoutParams().width - paddingRight - barWidth,
 				this.getLayoutParams().height - paddingBottom - barWidth);
 		circleInnerContour = new RectF(circleBounds.left + (rimWidth / 2.0f) + (contourSize / 2.0f), circleBounds.top + (rimWidth / 2.0f)
-				+ (contourSize / 2.0f), circleBounds.right - (rimWidth / 2.0f) - (contourSize / 2.0f), circleBounds.bottom - (rimWidth / 2.0f)
-				- (contourSize / 2.0f));
+				+ (contourSize / 2.0f), circleBounds.right - (rimWidth / 2.0f) - (contourSize / 2.0f), circleBounds.bottom
+				- (rimWidth / 2.0f) - (contourSize / 2.0f));
 		circleOuterContour = new RectF(circleBounds.left - (rimWidth / 2.0f) - (contourSize / 2.0f), circleBounds.top - (rimWidth / 2.0f)
-				- (contourSize / 2.0f), circleBounds.right + (rimWidth / 2.0f) + (contourSize / 2.0f), circleBounds.bottom + (rimWidth / 2.0f)
-				+ (contourSize / 2.0f));
+				- (contourSize / 2.0f), circleBounds.right + (rimWidth / 2.0f) + (contourSize / 2.0f), circleBounds.bottom
+				+ (rimWidth / 2.0f) + (contourSize / 2.0f));
 
 		fullRadius = (this.getLayoutParams().width - paddingRight - barWidth) / 2;
 		circleRadius = (fullRadius - barWidth) + 1;
@@ -249,8 +250,8 @@ public class ProgressWheel extends View {
 			canvas.drawArc(circleBounds, -90, progress, false, barPaint);
 		}
 		// Draw the inner circle
-		canvas.drawCircle((circleBounds.width() / 2) + rimWidth + paddingLeft, (circleBounds.height() / 2) + rimWidth + paddingTop, circleRadius,
-				circlePaint);
+		canvas.drawCircle((circleBounds.width() / 2) + rimWidth + paddingLeft, (circleBounds.height() / 2) + rimWidth + paddingTop,
+				circleRadius, circlePaint);
 		// Draw the text (attempts to center it horizontally and vertically)
 		float textHeight = textPaint.descent() - textPaint.ascent();
 		float verticalTextOffset = (textHeight / 2) - textPaint.descent();
@@ -362,6 +363,14 @@ public class ProgressWheel extends View {
 
 	public int getBarLength() {
 		return barLength;
+	}
+
+	public int getContourColor() {
+		return contourColor;
+	}
+
+	public void setContourColor(int contourColor) {
+		this.contourColor = contourColor;
 	}
 
 	public void setBarLength(int barLength) {
